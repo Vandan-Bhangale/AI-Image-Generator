@@ -10,20 +10,21 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //Login form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post("http://localhost:3000/api/login", { email, password }, { withCredentials: true });
-      console.log(response.data);
+      console.log(response.data);           //Log the data on console for debugging
       if(response.data.message === "Login successful") {
         toast.success("Login Successful");
 
         //Checking if the cookie is set or not
-        const isLoggedIn = Cookies.get("isLoggedIn");
-        console.log("Is Logged In:", isLoggedIn);
+        const isLoggedIn = Cookies.get("isLoggedIn");   //saving the cookie in isLoggedIn variable
+        console.log("Is Logged In:", isLoggedIn);      // Log the cookie value to check whether cookie is set or not
         navigate('/');
-        window.location.reload();
+        window.location.reload();       // Reload the page to reflect the login state
       }
     } catch (error) {
       console.error("Error logging in:", error);
@@ -48,7 +49,7 @@ const Login = () => {
             type="email"
             name="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}      //getting the value entered by the user
             placeholder="Enter your email"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required

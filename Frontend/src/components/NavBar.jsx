@@ -2,16 +2,18 @@ import { Link, useNavigate } from "react-router-dom";
 import GIMP from "../assets/GIMP.svg";
 import Cookies from 'js-cookie';
 import axios from "axios";
-import { toast, Toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
+//Passing the loggedIn state as props
 const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
   const navigate = useNavigate();
 
+  //Logout function to remove the cookie from the client side
    const handleLogout = async () => {
     try {
       await axios.post(`http://localhost:3000/api/logout`, {}, { withCredentials: true });
-      Cookies.remove('isLoggedIn');
-      setIsLoggedIn(false);
+      Cookies.remove('isLoggedIn');    // Remove the cookie from the client side
+      setIsLoggedIn(false);       //Setting the loggedIn state to false
       toast.success("Logout Successful");
       navigate('/');
     } catch (error) { 

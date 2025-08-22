@@ -6,12 +6,14 @@ import { ToastContainer } from 'react-toastify';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import { useEffect, useState } from 'react';
+import Generator from './components/Generator';
 
 function App() {
 
   const[isLoggedIn,setIsLoggedIn] = useState(false);
   const [user,setUser] = useState(null);
 
+  // Check authentication status on initial load
 useEffect(() => {
     const checkAuthStatus = async () => {
       try {
@@ -20,13 +22,13 @@ useEffect(() => {
           credentials: "include",
         });
         const data = await response.json();
-        setIsLoggedIn(data.isLoggedIn);
-        setUser(data.user || null);  
+        setIsLoggedIn(data.isLoggedIn);       // Update the loggedIn state, data will come from the backend API
+        setUser(data.user || null);       // Update the user state logged in or not
       } catch (error) {
         console.error("Error checking auth status:", error);
       }
     };
-    checkAuthStatus();
+    checkAuthStatus();      // Call the function to check auth status
   }, []);
 
   return (
@@ -38,6 +40,7 @@ useEffect(() => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/Login' element={<Login />}></Route>
         <Route path='/Signup' element={<Signup />}></Route>
+        <Route path='/generate' element={<Generator isLoggedIn={isLoggedIn} />}></Route>
       </Routes>
     </Router>
     </>
