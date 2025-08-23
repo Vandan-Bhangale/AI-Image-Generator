@@ -20,6 +20,7 @@ useEffect(() => {
         const response = await fetch(`${import.meta.env.VITE_GENERAL_API}/api/status`, {
           method: "GET",
           credentials: "include",
+          cache: "no-store"   // 👈 prevents 304 caching
         });
         const data = await response.json();
         setIsLoggedIn(data.isLoggedIn);       // Update the loggedIn state, data will come from the backend API
