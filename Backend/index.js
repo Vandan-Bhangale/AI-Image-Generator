@@ -22,6 +22,7 @@ const store = new mongodbStore({
 
 app.use(cors({ origin: process.env.CORS_ORIGIN ,credentials: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Session for localhost
 // app.use(session({
