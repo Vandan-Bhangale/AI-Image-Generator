@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const mongodbStore = require('connect-mongodb-session')(session);
 require('dotenv').config();
 
@@ -9,7 +10,7 @@ require('dotenv').config();
 const routes = require('./routes/userRoutes');
 
 const app = express();
-
+app.use(cookieParser());
 //Mongo URI and ports
 const URI = process.env.MONGODB_URI;
 const PORT = 3000;
