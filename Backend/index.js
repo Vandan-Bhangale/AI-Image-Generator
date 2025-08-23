@@ -24,13 +24,27 @@ app.use(cors({ origin: process.env.CORS_ORIGIN ,credentials: true }));
 app.use(express.json());
 
 //Session for localhost
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         httpOnly: true,
+//         secure: false,
+//         maxAge: 24*60*60*1000
+//     },
+//     store
+// }));
+
+//Session for deployment
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure: false,
+        secure: true,
+        sameSite: "none", 
         maxAge: 24*60*60*1000
     },
     store
