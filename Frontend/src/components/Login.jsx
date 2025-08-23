@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/api/login", { email, password }, { withCredentials: true });
+      const response = await axios.post(`${import.meta.env.VITE_GENERAL_API}/login`, { email, password }, { withCredentials: true });
       console.log(response.data);           //Log the data on console for debugging
       if(response.data.message === "Login successful") {
         toast.success("Login Successful");

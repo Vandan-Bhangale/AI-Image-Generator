@@ -11,7 +11,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
   //Logout function to remove the cookie from the client side
    const handleLogout = async () => {
     try {
-      await axios.post(`http://localhost:3000/api/logout`, {}, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_GENERAL_API}/logout`, {}, { withCredentials: true });
       Cookies.remove('isLoggedIn');    // Remove the cookie from the client side
       setIsLoggedIn(false);       //Setting the loggedIn state to false
       toast.success("Logout Successful");
