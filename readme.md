@@ -15,6 +15,18 @@ A full-stack application that generates images from text prompts.
 * **Backend**: Node.js, Express.js
 * **Database**: MongoDB
 
+---
+
+## 🌐 Live Demo
+
+Frontend (Vercel): [AI Image Generator - Live](https://ai-image-generator-inky.vercel.app/)  
+Backend (Render): [AI Image Generator API](https://ai-image-generator-backend-99h1.onrender.com)
+
+⚠️ **Note:** Since the backend is deployed on **Render free tier**, it may take some time to wake up from sleep.  
+Also, due to session/cookie handling in production, authentication-related requests may throw errors or not behave as expected in the live demo.
+
+---
+
 ## Folder Structure
 ```
 Image-Generator/
