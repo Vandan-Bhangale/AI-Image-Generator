@@ -11,6 +11,7 @@ const routes = require('./routes/userRoutes');
 
 const app = express();
 app.use(cookieParser());
+
 //Mongo URI and ports
 const URI = process.env.MONGODB_URI;
 const PORT = 3000;
@@ -23,6 +24,8 @@ const store = new mongodbStore({
 app.use(cors({ origin: process.env.CORS_ORIGIN ,credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.set("trust proxy", 1);  // trust first proxy (Render/Heroku/etc.)
 
 //Session for localhost
 // app.use(session({
