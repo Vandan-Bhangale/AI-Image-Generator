@@ -2,7 +2,7 @@ import { useState } from "react";
 import image1 from "../assets/image1.webp";
 import { toast } from "react-toastify"; 
 
-const Generator = ({ isLoggedIn }) => {
+const Generator = () => {
   const [image_url, setImage_url] = useState("/");
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,6 @@ const Generator = ({ isLoggedIn }) => {
 
   return (
     <>
-      {isLoggedIn ? (
         <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-12">
           {/* Header */}
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
@@ -104,17 +103,6 @@ const Generator = ({ isLoggedIn }) => {
             </button>
           </div>
         </div>
-      ) : (
-        <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-12">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Please Log In
-          </h2>
-          <p className="text-gray-600 text-center max-w-md">
-            You need to be logged in to use the image generator. Log in and
-            start creating your AI-powered images today.
-          </p>
-        </div>
-      )}
     </>
   );
 };

@@ -30,7 +30,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
       </Link>
 
       {/* Right side buttons */}
-      <div className="flex gap-4">
+      {/* <div className="flex gap-4">
         {isLoggedIn ? (
           <button
             onClick={handleLogout}
@@ -54,7 +54,7 @@ const NavBar = ({ setIsLoggedIn, isLoggedIn }) => {
             </Link>
           </>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };

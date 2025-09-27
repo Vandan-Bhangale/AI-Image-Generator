@@ -40,7 +40,7 @@ useEffect(() => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/Login' element={<Login />}></Route>
         <Route path='/Signup' element={<Signup />}></Route>
-        <Route path='/generate' element={<Generator isLoggedIn={isLoggedIn} />}></Route>
+        <Route path='/generate' element={<Generator />}></Route>
       </Routes>
     </Router>
     </>
